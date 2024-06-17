@@ -204,7 +204,7 @@ const AuthForm = ({ ...auth }) => {
                 </p>
               ) : (
                 <p>
-                  Don't have an account? <Link href="/auth/sign-up" className="text-primary underline">Sign Up</Link>
+                  Don&apos;t have an account? <Link href="/auth/sign-up" className="text-primary underline">Sign Up</Link>
                 </p>
               )}
             </form>

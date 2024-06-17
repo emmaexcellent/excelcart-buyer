@@ -11,7 +11,7 @@ const AboutSection = () => {
         </div>
         <div className='space-y-3 lg:w-1/2'>
           <h1 className="text-2xl font-bold text-primary">Excelcart</h1>
-          <p>At ExcelCart, we're dedicated to revolutionizing your online shopping experience. Our platform offers a seamless marketplace where students and professionals alike can buy, sell, and even become couriers to earn extra income.</p>
+          <p>At ExcelCart, we&apos;re dedicated to revolutionizing your online shopping experience. Our platform offers a seamless marketplace where students and professionals alike can buy, sell, and even become couriers to earn extra income.</p>
           <div className="flex justify-center lg:justify-start pt-5">
             <Button className='text-white  font-semibold'>Get Started</Button>
           </div>
