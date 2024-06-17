@@ -27,11 +27,12 @@ export async function delCampusInLocalStorage( campus: string ) {
 
 export const parseStringify = (value: any) => JSON.parse(JSON.stringify(value));
 
-export const formatDate = (isoString: string) => {
+export const formatDate = (isoString: string): string => {
   const date = new Date(isoString);
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
   return date.toLocaleDateString(undefined, options);
 };
+
 
 export const authFormSchema = (type: string) => z.object({
   // sign up
