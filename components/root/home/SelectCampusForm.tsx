@@ -51,7 +51,7 @@ const SelectCampusForm: React.FC<SelectCampusFormProps> = ({ campusList }) => {
     };
     fetchSavedCampus();
     setCategoryPopup(true);
-  }, []);  
+  }, [form]);  
 
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
     const savedCampus = await saveCampusInLocalStorage(data.campus);

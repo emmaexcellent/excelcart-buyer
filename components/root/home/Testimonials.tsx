@@ -93,7 +93,7 @@ const Testimonials: React.FC<PropType> = (props) => {
       .on('reInit', tweenScale)
       .on('scroll', tweenScale)
       .on('slideFocus', tweenScale)
-  }, [emblaApi, tweenScale])
+  }, [emblaApi, tweenScale, setTweenFactor, setTweenNodes])
 
   return (
     <section className="max-w-7xl m-auto my-20">
