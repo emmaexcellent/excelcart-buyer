@@ -43,7 +43,7 @@ const MainSection = ({
         <div className="hidden lg:block">          
           <ul className='flex items-center gap-10 pb-2 px-5 font-semibold text-gray-400 text-sm'>
             {profileLinks.map((link)=>
-              <li className={`${path === link.href && 'bg-primary/5 text-primary'} hover:bg-primary/5 hover:text-primarybg-primary/5 hover:text-primary p-2 cursor-pointer rounded-md`}>
+              <li key={link.title} className={`${path === link.href && 'bg-primary/5 text-primary'} hover:bg-primary/5 hover:text-primarybg-primary/5 hover:text-primary p-2 cursor-pointer rounded-md`}>
                 <Link href={link.href}>
                   {link.title}
                 </Link>
