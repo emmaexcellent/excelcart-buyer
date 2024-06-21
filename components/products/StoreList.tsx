@@ -11,8 +11,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { useState } from 'react'
-import { Card, CardContent } from '../ui/card'
-import Image from 'next/image'
 import StoreSingle from './StoreSingle'
 
 const StoreList = () => {

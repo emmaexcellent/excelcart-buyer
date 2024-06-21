@@ -46,11 +46,11 @@ const SelectCampusForm: React.FC<SelectCampusFormProps> = ({ campusList }) => {
       if (campusData) {
         setCampus(campusData);
         form.setValue("campus", campusData);
+        setCategoryPopup(true);
       }
       setLoading(false);
     };
-    fetchSavedCampus();
-    setCategoryPopup(true);
+    fetchSavedCampus();    
   }, [form]);  
 
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
@@ -88,7 +88,7 @@ const SelectCampusForm: React.FC<SelectCampusFormProps> = ({ campusList }) => {
                       </Button>
                     </FormControl>
                   </PopoverTrigger>
-                  <PopoverContent className="w-full m-2">
+                  <PopoverContent className="w-full min-w-sm max-w-xl">
                     <Command>
                       <CommandList>
                         <CommandInput placeholder="Search campus..." />

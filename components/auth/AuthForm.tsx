@@ -189,11 +189,11 @@ const AuthForm = ({ ...auth }) => {
               )}
               
                 {loading ? (
-                  <Button type="submit" className={`w-full`} disabled>
+                  <Button type="submit" className='w-full cursor-progress' disabled>
                     <Loader className='animate-spin'/>
                   </Button>
                 ):(
-                  <Button type="submit" className={`w-full`}>
+                  <Button type="submit" className='w-full'>
                     {auth.page === "sign-up" ? "Sign Up" : "Sign In"}
                   </Button>
                 )}

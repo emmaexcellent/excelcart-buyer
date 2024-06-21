@@ -1,5 +1,6 @@
 import PersonalDetails from '@/components/profile/PersonalDetails';
 import TopProfileDetails from '@/components/profile/TopProfileDetails';
+import UserAddresses from '@/components/profile/UserAddresses';
 import { getLoggedInUser } from '@/lib/actions/auth.actions';
 import { redirect } from 'next/navigation';
 
@@ -12,7 +13,8 @@ const Profile = async () => {
   return (
     <>
       <TopProfileDetails user = {user}/>
-      <PersonalDetails/>
+      <PersonalDetails user = {user}/>
+      <UserAddresses user = {user}/>
     </>
   )
 }
