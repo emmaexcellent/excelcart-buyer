@@ -15,10 +15,9 @@ export async function signUp(values: SignUpValues){
   }
 
   try {
-    const { account, users } = await createAdminClient();
+    const { users } = await createAdminClient();
 
-    // Create user
-    const userCreated = await users.create(
+    await users.create(
       ID.unique(),
       email,
       phone,
@@ -57,6 +56,31 @@ export async function signIn(email: string, password: string) {
     return { message: "Sign in successful" };
   } catch (error: any) {
     // Return error message
+    return { error: error.response ? error.response.message : error.message };
+  }
+}
+
+export async function updateDetails(userID: string, username: string, email: string, phone: string) {
+  if (!email) {
+    throw new Error("Email is required!");
+  }
+  if (!username) {
+    throw new Error("Username is required!");
+  }
+  if (!phone) {
+    throw new Error("Phone number is required!");
+  }
+
+  try {
+    const { users } = await createAdminClient();
+    await users.updateName(userID, username);
+    await users.updateEmail(userID, email)
+    await users.updatePhone(userID, phone)
+
+    return { message: "Profile Details updated successfully!" };
+  } catch (error: any) {
+    // Return error message
+    console.log(error.response.message)
     return { error: error.response ? error.response.message : error.message };
   }
 }

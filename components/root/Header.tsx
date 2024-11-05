@@ -19,7 +19,7 @@ const Header = async () => {
   // </Await>
 
   return (
-    <header className='w-full bg-background sticky top-0 z-10 p-3 shadow-md'>
+    <header className='w-full bg-background sticky top-0 z-10 p-3 shadow-sm'>
       <div className='flex justify-between items-center max-w-7xl m-auto'>
         <Link href='/'> 
           <Image src="/logo.png" width={100} height={25} alt="Excelcart logo"/>

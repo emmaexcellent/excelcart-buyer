@@ -24,6 +24,10 @@ const profileLinks = [
     href: '/profile/loyalty',
   },
   {
+    title: 'Referrals',
+    href: '/profile/referrals',
+  },
+  {
     title: 'Chat',
     href: '/profile/chat',
   },
@@ -38,12 +42,12 @@ const MainSection = ({
     const path = usePathname()
 
   return (
-    <section className='w-full'>
-      <div className='p-5 rounded-xl bg-muted m-5'>
+    <section className='w-full max-w-7xl m-auto'>
+      <div className='p-5 rounded-xl bg-card m-5 shadow-md'>
         <div className="hidden lg:block">          
-          <ul className='flex items-center gap-10 pb-2 px-5 font-semibold text-gray-400 text-sm'>
+          <ul className='flex items-center gap-10 pb-2 px-5 font-semibold text-gray-600 dark:text-gray-400 text-sm'>
             {profileLinks.map((link)=>
-              <li key={link.title} className={`${path === link.href && 'bg-primary/5 text-primary'} hover:bg-primary/5 hover:text-primarybg-primary/5 hover:text-primary p-2 cursor-pointer rounded-md`}>
+              <li key={link.title} className={`${path === link.href && 'bg-primary/10 text-primary font-bold'} hover:bg-primary/1- hover:text-primarybg-primary/10hover:text-primary p-2 px-3 cursor-pointer rounded-md`}>
                 <Link href={link.href}>
                   {link.title}
                 </Link>

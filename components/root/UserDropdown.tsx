@@ -54,7 +54,7 @@ export function UserDropdown({user}: LoggedInUserProps) {
       <DropdownMenuContent className="w-56 mr-5">
         <DropdownMenuLabel>Hello, {user.name}</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuGroup>
+        <DropdownMenuGroup className="space-y-1">
           <DropdownMenuItem className={`hover:bg-primary/20 ${path==='/profile'?'bg-primary/20':''}`}>
             <Link href='/profile' className='flex items-center'>
               <User className="mr-2 h-4 w-4" />
@@ -81,15 +81,15 @@ export function UserDropdown({user}: LoggedInUserProps) {
           </DropdownMenuItem>          
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuGroup>
+        <DropdownMenuGroup className="space-y-1">
           <DropdownMenuItem className={`hover:bg-primary/20 ${path==='/profile/coupons'?'bg-primary/20':''}`}>
-            <Link href='/profile/wallet' className='flex items-center'>
+            <Link href='/profile/coupons' className='flex items-center'>
               <BadgeCent className="mr-2 h-4 w-4" />
               <span>Coupons</span>
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem className={`hover:bg-primary/20 ${path==='/profile/loyalty'?'bg-primary/20':''}`}>
-            <Link href='/profile/wallet' className='flex items-center'>
+            <Link href='/profile/loyalty' className='flex items-center'>
               <HandCoins className="mr-2 h-4 w-4" />
               <span>Loyalty Points</span>
             </Link>
@@ -102,7 +102,7 @@ export function UserDropdown({user}: LoggedInUserProps) {
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuGroup>
+        <DropdownMenuGroup className="space-y-1">
           <DropdownMenuItem className={`hover:bg-primary/20 ${path==='/profile/track-order'?'bg-primary/20':''}`}>
             <Link href='/profile/track-order' className='flex items-center'>
               <Bike className="mr-2 h-4 w-4" />

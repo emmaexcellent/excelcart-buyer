@@ -6,14 +6,13 @@ import CategoryCarousel from "@/components/root/home/CategoryCarousel";
 import Hero from "@/components/root/home/Hero";
 import MakeMoney from "@/components/root/home/MakeMoney";
 import Testimonials from "@/components/root/home/Testimonials";
-import { getLoggedInUser } from "@/lib/actions/auth.actions";
 
 
 const SLIDE_COUNT = 5
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
 
-export default async function Home () {
-  const loggedInUser = await getLoggedInUser();
+export default function Home () {
+  
   return (
     <>
       <Hero/>

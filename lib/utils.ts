@@ -35,25 +35,17 @@ export const formatDate = (isoString: string): string => {
 
 
 export const authFormSchema = (type: string) => z.object({
-  // sign up
-  username: type === 'sign-up' ? z.string().min(2, 'Username must contain at least 2 character(s)').max(50) : z.string().optional(),
+  // sign up & update
+  username: type === 'sign-up' || type === 'update' ? z.string().min(2, 'Username must contain at least 2 character(s)').max(50) : z.string().optional(),
   
-  phone: type === 'sign-up' ? z.string().min(2, "Enter a valid phone number!") : z.string().optional(),
+  phone: type === 'sign-up' || type === 'update' ? z.string().min(2, "Enter a valid phone number!") : z.string().optional(),
   
   confirmPassword: type === 'sign-up' ? z.string().min(8) : z.string().optional(),
   
   acceptTerms: type === 'sign-up' ? z.boolean() : z.boolean().optional(),
   
-  // sign in & sign up
+  // sign in & sign up & update
   email: z.string().min(2, "Enter a valid email!").email(),
   
-  password: z.string().min(8, "Password must contain at least 8 character(s)"),
-}).refine((data) => {
-  if (type === 'sign-up') {
-    return data.password === data.confirmPassword;
-  }
-  return true;
-}, {
-  message: "Passwords do not match",
-  path: ['confirmPassword'],
+  password: type === 'update' ? z.string().optional() : z.string().min(8, "Password must contain at least 8 character(s)"),
 });

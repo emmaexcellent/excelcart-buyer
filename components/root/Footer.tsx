@@ -1,9 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import FacebookSvg from '../../public/social/facebook.svg'
-import InstagramSvg from '../../public/social/instagram.svg'
-import TwitterSvg from '../../public/social/twitter.svg'
-import LinkedinSvg from '../../public/social/linkedin.svg'
 import { Button } from '../ui/button'
 
 const Footer = () => {
@@ -16,22 +12,22 @@ const Footer = () => {
           <ul className="inline-flex gap-8 p-2">
             <li>
               <Link href='/'>
-                <FacebookSvg/>
+                <Image src='/social/whatsapp.svg' width={30} height={30} alt='Whatsapp'/>
               </Link>
             </li>
             <li>
               <Link href='/'>
-                <InstagramSvg/>
+                <Image src='/social/facebook.svg' width={30} height={30} alt='Facebook'/>
               </Link>
             </li>
             <li>
               <Link href='/'>
-                <TwitterSvg/>
+                <Image src='/social/twitter.svg' width={30} height={30} alt='Twitter'/>
               </Link>
             </li>
             <li>
               <Link href='/'>
-                <LinkedinSvg/>
+              <Image src='/social/instagram.svg' width={30} height={30} alt='Instagram'/>
               </Link>
             </li>          
           </ul>

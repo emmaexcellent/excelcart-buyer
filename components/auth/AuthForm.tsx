@@ -19,7 +19,7 @@ const AuthForm = ({ ...auth }) => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const formSchema = authFormSchema(auth.type);
+  const formSchema = authFormSchema(auth.page);
 
   const router = useRouter()
 
@@ -114,7 +114,7 @@ const AuthForm = ({ ...auth }) => {
 
   return (
     <div className="py-12 px-2 md:px-7">
-      <div className='shadow-md md:w-[600px] m-auto p-5 md:p-10 bg-muted/20 rounded-xl'>
+      <div className='shadow-md md:w-[600px] m-auto p-5 md:p-10 bg-muted/20 border rounded-xl'>
           <h1 className="text-center font-extrabold text-lg uppercase p-2">
             {auth.page.replace("-", " ")}
           </h1>

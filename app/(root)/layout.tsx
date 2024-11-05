@@ -9,6 +9,7 @@ import Footer from "@/components/root/Footer";
 import Subscribe from "@/components/root/Subscribe";
 import MobileMenu from "@/components/root/MobileMenu";
 import { getLoggedInUser } from "@/lib/actions/auth.actions";
+import TopLoader from "@/components/Toploader";
 
 
 const inter = Inter({ 
@@ -32,6 +33,7 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`relative ${inter.className}`}>
+        <TopLoader/>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

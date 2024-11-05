@@ -30,7 +30,10 @@ const filters = [
 const WalletPage = async () => {
   const user = await getLoggedInUser();
 
-  if (!user) redirect("/auth/sign-in?redirect_url=/profile/wallet");
+  if (!user) {
+    redirect("/auth/sign-in?redirect_url=/profile/coupons");
+  }
+
   return (
     <>
       <TopProfileDetails user = {user}/>

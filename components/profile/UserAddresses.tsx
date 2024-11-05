@@ -6,14 +6,14 @@ import Image from 'next/image'
 
 const UserAddresses = ({user}: LoggedInUserProps) => {
   return (
-    <section className='w-full my-5'>
-      <Card className='shadow-md mx-5 bg-muted'>
+    <section className='w-full my-5 max-w-7xl m-auto'>
+      <Card className='shadow-md mx-5'>
         <CardHeader className='flex-row justify-between items-center p-4'>
           <h6 className='font-semibold '>My Addresses</h6>
-          <Button variant='link' size='icon' className=' md:hidden'>
+          <Button variant='link' size='icon' className='lg:hidden'>
             <Plus/>
           </Button>
-          <Button className='hidden md:inline-flex'>
+          <Button className='hidden lg:inline-flex'>
             <Plus className="mr-2 h-4 w-4" /> Add Address
           </Button>
         </CardHeader>
