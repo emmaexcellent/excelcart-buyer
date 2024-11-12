@@ -17,7 +17,7 @@ const StoreList = () => {
         </div>
       </div>
 
-      <div className="w-full max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <div className="w-full max-w-6xl lg:mx-auto grid px-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         <StoreSingle
           imgUrl="/vendors/em.png"
           name="EcoMarket"
