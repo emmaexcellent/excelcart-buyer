@@ -8,7 +8,7 @@ import { getCampusList } from "@/lib/actions/campus.actions"
 const Hero = async () => {
   const campusList = await getCampusList();
   return (
-    <section className='w-full p-4 py-8 md:p-8 rounded-t-lg bg-muted'>
+    <section className='w-full max-w-6xl mx-auto p-4 py-8 md:p-8 rounded-t-lg bg-muted'>
       <div className='w-full lg:grid grid-cols-2 items-center gap-5 lg:gap-10 max-w-7xl m-auto'>
         <div className='lg:w-full text-center lg:text-left'>
           <h1 className='text-2xl md:text-3xl lg:text-4xl font-semibold lg:!leading-relaxed'>Excelcart, Your Ultimate Campus Shopping.</h1>

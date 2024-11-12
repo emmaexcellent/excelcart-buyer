@@ -23,7 +23,7 @@ import { Search } from 'lucide-react'
           <p className='text-sm pt-2 font-normal'>Get Your delicious foods! Swift Delivery Guaranteed.</p>
           <div className='relative w-[90%] md:w-[55%] mt-2 p-1.5 bg-primary'>
             <Input type="text" placeholder="Search for foods or restaurants..." className='border-0 focus-visible:ring-primary ring-primary border-primary'/>
-            <Search width={17} className='absolute top-3 right-4'/>
+            <Search width={17} className='absolute top-4 right-4'/>
           </div>
         </div>
       )}

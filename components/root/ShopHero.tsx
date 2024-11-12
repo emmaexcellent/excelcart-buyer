@@ -13,7 +13,7 @@ const ShopHero = () => {
           <p className='text-xs pt-2 font-normal'>Get Your Groceries Fast! Swift Delivery Guaranteed.</p>
           <div className='relative w-[95%]'>
             <Input type="text" placeholder="Search for grocery or store..." className=''/>
-            <Search width={17} className='absolute top-2 right-3'/>
+            <Search width={17} className='absolute top-4 right-3'/>
           </div>
         </div>
       </div>

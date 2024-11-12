@@ -5,7 +5,7 @@ import React from 'react'
 
 const MakeMoney = () => {
   return (
-    <section className='max-w-7xl m-auto w-full my-10 pt-5'>
+    <section className='max-w-6xl mx-auto w-full my-10 pt-5'>
       <h3 className='text-xl lg:text-2xl font-bold text-center px-3'>Start Earning With <span className='text-primary'>Excelcart</span></h3>
       <p className='text-center text-xs lg:text-sm mt-2 px-3'>Join Excelcart today and unlock unlimited earning potential where you are empowered to thrive in the online marketplace.</p>
       <div className='my-5 flex flex-col lg:flex-row justify-center gap-5 lg:gap-5 lg:mx-5 px-5'>

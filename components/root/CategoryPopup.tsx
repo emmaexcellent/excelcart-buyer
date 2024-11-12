@@ -9,7 +9,6 @@ import { Info, X } from "lucide-react"
 import ShopCategory from "./ShopCategory"
 
 const CategoryPopup = ({...props}) => {
-  console.log(props.campus)
   return (
     <Dialog open={props.categoryPopup}>
       <DialogContent className="w-[90%] mx-auto rounded-xl shadow-sm p-5">

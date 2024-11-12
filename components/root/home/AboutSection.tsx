@@ -5,7 +5,7 @@ import Image from 'next/image'
 const AboutSection = () => {
   return (
     <section className='w-full my-10 bg-white dark:bg-black'>
-      <div className='max-w-7xl m-auto flex flex-col lg:flex-row justify-center items-center py-5 rounded-none lg:gap-10 px-4 lg:px-0'>
+      <div className='max-w-6xl mx-auto flex flex-col lg:flex-row justify-center items-center py-5 rounded-none lg:gap-10 px-4 lg:px-0'>
         <div className='lg:order-last lg:w-1/3'>
           <Image src='/delivery.svg' width={400} height={400} alt=''/>
         </div>

@@ -6,14 +6,14 @@ import SpecialOffer from '@/components/products/SpecialOffer'
 import StoreList from '@/components/products/StoreList'
 import PageHero from '@/components/root/PageHero'
 import ProductCategory from '@/components/root/ProductCategory'
+import {
+  groceryCategories,
+  foodCategories,
+  pharmacyCategories,
+  shopCategories,
+} from "@/data";
 
-const getSubCategories = async () => {
-  const res = await fetch('https://api.escuelajs.co/api/v1/categories')   
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
-  } 
-  return res.json()
-}
+
 
 const getPopularProducts = async () => {
   try {
@@ -36,75 +36,117 @@ const getSpecialProducts = async () => {
 }
 
 const CategoryProductPage = async ({ params }: { params: { campus: string, category: string } }) => {
-  const subCategories = await getSubCategories()
   const popularProducts = await getPopularProducts()
   const specialOfferProducts = await getSpecialProducts();
 
   return (
     <>
-      {params.category === 'groceries' && (
+      {params.category === "groceries" && (
         <>
-          <PageHero category={params.category}/>
-          <ProductCategory subCategories=
-          {subCategories} category={params.category}/>
-          <PopularProducts popularProducts={popularProducts} category={params.category}/>
-          <SpecialOffer specialOfferProducts={specialOfferProducts} category={params.category}/>
-          <AdsBanner/>
-          <NewArrived NewProducts={specialOfferProducts} category={params.category}/>
-          <StoreList/>
+          <PageHero category={params.category} />
+          <ProductCategory
+            subCategories={groceryCategories}
+            category={params.category}
+          />
+          <PopularProducts
+            popularProducts={popularProducts}
+            category={params.category}
+          />
+          <SpecialOffer
+            specialOfferProducts={specialOfferProducts}
+            category={params.category}
+          />
+          <AdsBanner />
+          <NewArrived
+            NewProducts={specialOfferProducts}
+            category={params.category}
+          />
+          <StoreList />
         </>
       )}
 
-      {params.category === 'foods' && (
+      {params.category === "foods" && (
         <>
-          <PageHero category={params.category}/>
-          <ProductCategory subCategories=
-          {subCategories} category={params.category}/>
-          <SpecialOffer specialOfferProducts={specialOfferProducts} category={params.category}/> 
-          <AdsBanner/>
-          <PopularProducts popularProducts={popularProducts} category={params.category}/> 
-          <NewArrived NewProducts={specialOfferProducts} category={params.category}/>
-          <StoreList/>
+          <PageHero category={params.category} />
+          <ProductCategory
+            subCategories={foodCategories}
+            category={params.category}
+          />
+          {/* <SpecialOffer
+            specialOfferProducts={specialOfferProducts}
+            category={params.category}
+          /> */}
+          {/* <AdsBanner />
+          <PopularProducts
+            popularProducts={popularProducts}
+            category={params.category}
+          />
+          <NewArrived
+            NewProducts={specialOfferProducts}
+            category={params.category}
+          />
+          <StoreList /> */}
         </>
       )}
 
-      {params.category === 'pharmacy' && (
+      {params.category === "pharmacy" && (
         <>
-          <PageHero category={params.category}/>
-          <ProductCategory subCategories=
-          {subCategories} category={params.category}/>
-          <SpecialOffer specialOfferProducts={specialOfferProducts} category={params.category}/> 
-          <AdsBanner/>
-          <PopularProducts popularProducts={popularProducts} category={params.category}/> 
-          <NewArrived NewProducts={specialOfferProducts} category={params.category}/>
-          <StoreList/>
+          <PageHero category={params.category} />
+          <ProductCategory
+            subCategories={pharmacyCategories}
+            category={params.category}
+          />
+          <SpecialOffer
+            specialOfferProducts={specialOfferProducts}
+            category={params.category}
+          />
+          <AdsBanner />
+          <PopularProducts
+            popularProducts={popularProducts}
+            category={params.category}
+          />
+          <NewArrived
+            NewProducts={specialOfferProducts}
+            category={params.category}
+          />
+          <StoreList />
         </>
       )}
 
-      {params.category === 'general' && (
+      {params.category === "general" && (
         <>
-          <PageHero category={params.category}/>
+          <PageHero category={params.category} />
 
-          <ProductCategory subCategories=
-          {subCategories} category={params.category}/>
+          <ProductCategory
+            subCategories={shopCategories}
+            category={params.category}
+          />
 
-          <AdsBanner/>
+          <AdsBanner />
 
-          <PopularProducts popularProducts={popularProducts} category={params.category}/>
+          <PopularProducts
+            popularProducts={popularProducts}
+            category={params.category}
+          />
 
-          <AdsBanner/>
+          <AdsBanner />
 
-          <SpecialOffer specialOfferProducts={specialOfferProducts} category={params.category}/>
+          <SpecialOffer
+            specialOfferProducts={specialOfferProducts}
+            category={params.category}
+          />
 
-          <PopularStore category={params.category}/>
-          
-          <NewArrived NewProducts={specialOfferProducts} category={params.category}/>
-          <StoreList/>
+          <PopularStore category={params.category} />
+
+          <NewArrived
+            NewProducts={specialOfferProducts}
+            category={params.category}
+          />
+          <StoreList />
         </>
       )}
-      
     </>
-  )
+  );
 }
 
 export default CategoryProductPage

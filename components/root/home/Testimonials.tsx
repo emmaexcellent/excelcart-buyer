@@ -96,7 +96,7 @@ const Testimonials: React.FC<PropType> = (props) => {
   }, [emblaApi, tweenScale, setTweenFactor, setTweenNodes])
 
   return (
-    <section className="max-w-7xl m-auto my-20">
+    <section className="max-w-6xl mx-auto my-20">
       <h3 className='text-xl font-semibold text-center py-8'>Our <span className='text-primary'>Satisfied</span> Customers & Vendors Review</h3>
       <div className="carousel">
         <div className="carousel__viewport" ref={emblaRef}>

@@ -7,10 +7,13 @@ import {
 } from "@/components/ui/carousel"
 import Image from "next/image"
 
+const adsBanner = [
+  "/ad-banners/2.png","/ad-banners/1.png","/ad-banners/3.png"
+]
 
 const AdsBanner = () => {
   return (
-    <section className="my-10 max-w-[74rem] mx-auto">
+    <section className="w-full my-16 max-w-6xl mx-auto">
       <Carousel className="w-full"   
         opts={{
           align: "start",
@@ -23,23 +26,13 @@ const AdsBanner = () => {
         ]}
       >
         <CarouselContent className="-ml-1">
-          <CarouselItem className="pl-1 basis-[80%] md:basis-1/2 lg:basis-1/3">
-            <div className="aspect-video">
-              <Image src='/ad-banners/2.png' width={300} height={300} alt='banner' className='w-full !h-[180px] rounded-xl'/>
+          {adsBanner.map((banner, index) =>
+          <CarouselItem key={index} className="pl-1 basis-[80%] md:basis-1/2 lg:basis-1/3 mx-1">
+            <div className="p-1">
+              <Image src={banner} width={300} height={500} alt='banner' className='w-full !h-[180px] object-cover rounded-xl'/>
             </div>
           </CarouselItem>
-
-          <CarouselItem className="pl-1 basis-[80%] md:basis-1/2 lg:basis-1/3">
-            <div className="p-1 aspect-video">
-              <Image src='/ad-banners/3.png' width={300} height={200} alt='banner' className='!h-[180px] w-full rounded-xl'/>
-            </div>
-          </CarouselItem>
-
-          <CarouselItem className="pl-1 basis-[80%] md:basis-1/2 lg:basis-1/3">
-            <div className="p-1 aspect-video">
-              <Image src='/ad-banners/1.png' width={300} height={200} alt='banner' className='!h-[180px] w-full rounded-xl'/>
-            </div>
-          </CarouselItem>
+          )}
         </CarouselContent>
       </Carousel>
     </section>

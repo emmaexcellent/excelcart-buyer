@@ -12,7 +12,7 @@ import CarouselSingleItem from "./CarouselSingleItem"
 
 const CategoryCarousel = () => {
   return (
-    <section className="w-full my-10 px-2  max-w-7xl m-auto">
+    <section className="w-full my-10 px-2 max-w-6xl mx-auto">
       <Carousel opts={{
         loop: true,
         align: "end"

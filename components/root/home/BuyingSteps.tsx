@@ -4,7 +4,7 @@ import React from 'react'
 
 const BuyingSteps = () => {
   return (
-    <section className='max-w-7xl m-auto w-full my-16'>
+    <section className='max-w-6xl mx-auto w-full my-16'>
       <div className='flex flex-col lg:flex-row items-center'>        
         <Image src='/deliverybike.svg' width={200} height={200} alt='deliver bike' className='w-[80%] lg:w-[40%]'/>
         <div className='w-full'>

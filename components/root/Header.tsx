@@ -19,30 +19,32 @@ const Header = async () => {
   // </Await>
 
   return (
-    <header className='w-full bg-background sticky top-0 z-10 p-3 shadow-sm'>
-      <div className='flex justify-between items-center max-w-7xl m-auto'>
-        <Link href='/'> 
-          <Image src="/logo.png" width={100} height={25} alt="Excelcart logo"/>
+    <header className="w-full bg-background sticky top-0 z-10 p-3 shadow-sm">
+      <div className="w-full flex justify-between items-center max-w-6xl m-auto">
+        <Link href="/">
+          <Image src="/logo.png" width={100} height={25} alt="Excelcart logo" />
         </Link>
         {!loggedInUser ? (
-          <div className='flex justify-between'>
-            <ThemeToggle/>
-            <Button size="icon" variant="link"><Phone/></Button>         
-            <Link href='/auth/sign-in' className="flex">
-              <Button size='sm' className='text-white font-semibold'><Unlock width={18} className='pr-1 hidden sm:block'/> Sign In</Button>
+          <div className="flex justify-between">
+            <ThemeToggle />
+            <Link href="/auth/sign-in" className="flex">
+              <Button size="sm" className="text-white font-semibold">
+                <Unlock width={18} className="pr-1 hidden sm:block" /> Sign In
+              </Button>
             </Link>
           </div>
-        ):(
-          <div className='flex justify-between'>
-            <ThemeToggle/>
-            <UserDropdown user={loggedInUser}/>  
-            <Button size="icon" variant="link"><Menu/></Button>   
+        ) : (
+          <div className="flex justify-between">
+            <ThemeToggle />
+            <UserDropdown user={loggedInUser} />
+            <Button size="icon" variant="link">
+              <Menu />
+            </Button>
           </div>
         )}
-           
       </div>
     </header>
-  )
+  );
 }
 
 export default Header
