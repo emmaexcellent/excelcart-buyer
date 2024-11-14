@@ -33,7 +33,7 @@ const NewArrived = ({NewProducts, category }: { NewProducts: ProductProps[], cat
                 <div className="p-1">
                   <Card>
                     <CardContent className="flex flex-col p-3 h-full relative group">
-                      <div className="bg-white rounded-lg flex items-center justify-center w-full h-[180px] relative">
+                      <div className="bg-white dark:bg-gray-300 rounded-lg flex items-center justify-center w-full h-[180px] relative">
                         <Image
                           src={product.thumbnail}
                           width={250}
