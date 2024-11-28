@@ -10,6 +10,7 @@ import { useRouter } from 'next/navigation'
 import { toast } from '../ui/use-toast'
 import { DialogClose, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog"
 import CustomFormField from "./CustomFormField"
+import { updateDetails } from "@/lib/actions/auth.actions"
 
 const formSchema = z.object({
   password: z.string().min(2, "Password must be at least 2 characters long").max(50, "Password cannot exceed 50 characters"),
