@@ -1,4 +1,5 @@
-'use client'
+'use client';
+
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ImagePlus, SendHorizonal, SmilePlus } from 'lucide-react';
@@ -16,36 +17,60 @@ const initialMessages = [
 // Dynamically import the EmojiPicker component
 const EmojiPicker = dynamic(() => import('emoji-picker-react'), { ssr: false });
 
+interface Message {
+  id: number;
+  sender: string;
+  content: string | JSX.Element;
+}
+
 const MessageMain = ({ channel }: { channel: string }) => {
-  const [messages, setMessages] = useState(initialMessages);
-  const [newMessage, setNewMessage] = useState('');
-  const [showStickerModal, setShowStickerModal] = useState(false);
-  const [showImageModal, setShowImageModal] = useState(false);
-  const [imageInput, setImageInput] = useState('');
+  const [messages, setMessages] = useState<Message[]>(initialMessages);
+  const [newMessage, setNewMessage] = useState<string>('');
+  const [showStickerModal, setShowStickerModal] = useState<boolean>(false);
+  const [showImageModal, setShowImageModal] = useState<boolean>(false);
+  const [imageInput, setImageInput] = useState<string>('');
 
   const handleSendMessage = () => {
     if (newMessage.trim()) {
-      setMessages([...messages, { id: messages.length + 1, sender: 'You', content: newMessage }]);
+      setMessages([
+        ...messages,
+        { id: messages.length + 1, sender: 'You', content: newMessage },
+      ]);
       setNewMessage('');
     }
   };
 
-  const handleReply = (message: { id?: number; sender: any; content?: string; }) => {
-    setNewMessage(message.sender);
+  const handleReply = (sender: string) => {
+    setNewMessage(`@${sender} `);
   };
 
   const handleDelete = (id: number) => {
-    setMessages(messages.filter(message => message.id !== id));
+    setMessages(messages.filter((message) => message.id !== id));
   };
 
-  const handleEmojiClick = (event, emojiObject) => {
-    setMessages([...messages, { id: messages.length + 1, sender: 'You', content: emojiObject.emoji }]);
+  const handleEmojiClick = (emojiObject: { emoji: string }) => {
+    setNewMessage(newMessage + emojiObject.emoji);
     setShowStickerModal(false);
   };
 
   const handleAddImage = () => {
     if (imageInput.trim()) {
-      setMessages([...messages, { id: messages.length + 1, sender: 'You', content: <Image src={imageInput} alt="Image" width={150} height={150} /> }]);
+      setMessages([
+        ...messages,
+        {
+          id: messages.length + 1,
+          sender: 'You',
+          content: (
+            <Image
+              src={imageInput}
+              alt="User uploaded"
+              width={150}
+              height={150}
+              className="rounded"
+            />
+          ),
+        },
+      ]);
       setImageInput('');
       setShowImageModal(false);
     }
@@ -61,13 +86,13 @@ const MessageMain = ({ channel }: { channel: string }) => {
                 src="/vendors/fsl.png"
                 width={85}
                 height={85}
-                alt="logo"
+                alt="Excelcart Logo"
                 className="absolute inset-0 w-full h-full object-contain rounded-full"
               />
             </div>
             <div>
               <p className="font-semibold">Excelcart Support & Help</p>
-              <p>Admin</p>
+              <p className="text-sm">Admin</p>
             </div>
           </div>
           <div className="flex-grow overflow-y-auto mb-4 p-2 pt-7 max-h-[50vh]">
@@ -75,19 +100,21 @@ const MessageMain = ({ channel }: { channel: string }) => {
               <div key={message.id} className="mb-4">
                 <div className="flex justify-between items-start">
                   <div>
-                    <span className="font-semibold">{message.sender}:</span>
+                    <span className="font-semibold">{message.sender}: </span>
                     <span>{message.content}</span>
                   </div>
                   <div>
                     <button
-                      onClick={() => handleReply(message)}
+                      onClick={() => handleReply(message.sender)}
                       className="text-blue-500 mr-2 hover:underline"
+                      aria-label="Reply"
                     >
                       Reply
                     </button>
                     <button
                       onClick={() => handleDelete(message.id)}
                       className="text-red-500 hover:underline"
+                      aria-label="Delete"
                     >
                       Delete
                     </button>
@@ -108,14 +135,17 @@ const MessageMain = ({ channel }: { channel: string }) => {
               <ImagePlus
                 onClick={() => setShowImageModal(true)}
                 className="cursor-pointer"
+                aria-label="Add Image"
               />
               <SmilePlus
                 onClick={() => setShowStickerModal(true)}
                 className="cursor-pointer"
+                aria-label="Add Emoji"
               />
               <SendHorizonal
                 onClick={handleSendMessage}
                 className="cursor-pointer"
+                aria-label="Send Message"
               />
             </div>
           </div>
@@ -124,14 +154,13 @@ const MessageMain = ({ channel }: { channel: string }) => {
             <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
               <div className="bg-white p-4 rounded shadow-lg">
                 <h2 className="text-lg font-semibold mb-2">Add a Sticker</h2>
-                <EmojiPicker onEmojiClick={handleEmojiClick} />
+                <EmojiPicker
+                  onEmojiClick={(emojiData) => handleEmojiClick(emojiData)}
+                />
                 <div className="flex justify-end mt-4">
-                  <button
-                    onClick={() => setShowStickerModal(false)}
-                    className="bg-gray-500 text-white px-4 py-2 rounded"
-                  >
+                  <Button onClick={() => setShowStickerModal(false)}>
                     Close
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>
@@ -141,51 +170,38 @@ const MessageMain = ({ channel }: { channel: string }) => {
             <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
               <div className="bg-white p-4 rounded shadow-lg">
                 <h2 className="text-lg font-semibold mb-2">Add an Image</h2>
-                <input
+                <Input
                   type="text"
                   value={imageInput}
                   onChange={(e) => setImageInput(e.target.value)}
-                  className="border p-2 mb-4 w-full"
                   placeholder="Enter image URL"
                 />
-                <div className="flex justify-end">
-                  <button
-                    onClick={handleAddImage}
-                    className="bg-blue-500 text-white px-4 py-2 rounded mr-2"
-                  >
+                <div className="flex justify-end mt-4">
+                  <Button onClick={handleAddImage} className="mr-2">
                     Add
-                  </button>
-                  <button
+                  </Button>
+                  <Button
+                    variant="secondary"
                     onClick={() => setShowImageModal(false)}
-                    className="bg-gray-500 text-white px-4 py-2 rounded"
                   >
                     Cancel
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>
           )}
         </>
       ) : (
-        <div
-          className="flex flex-col justify-center flex-grow overflow-y-auto mb-4 p-2"
-          style={{ height: "50vh" }}
-        >
-          <div className="w-full flex justify-center">
-            <Image
-              src="/no-message.svg"
-              width={200}
-              height={200}
-              alt="No Message Selected!"
-            />
-          </div>
+        <div className="flex flex-col justify-center items-center flex-grow">
+          <Image
+            src="/no-message.svg"
+            width={200}
+            height={200}
+            alt="No Message Selected"
+          />
           <div className="text-gray-500 text-center">
-            <p className="font-semibold">
-              Currently, you don&apos;t have any message selected.
-            </p>
-            <p className="text-xs">
-              Choose from one of the existing messages, or start a new one.
-            </p>
+            <p className="font-semibold">No message selected.</p>
+            <p className="text-sm">Select a message or start a new one.</p>
           </div>
         </div>
       )}
